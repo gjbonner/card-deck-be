@@ -6,7 +6,7 @@ class Api::V1::DecksController < ApplicationController
     suits = %w(Diamonds Clubs Spades Hearts)
     suits.each do |suit|
       values.each do |value|
-        Card.create(value: value, suit: suit, deck_id: deck.id)
+        Card.create(value: value, suit: suit, deck_id: deck.id, code:value+suit[0])
       end
     end
     render :json => deck.cards
@@ -14,10 +14,10 @@ class Api::V1::DecksController < ApplicationController
 
   def draw
     deck = Deck.find(params[:id])
-    random = deck.cards.sample
-    render :json => random
+    drawn = Array.new
+    (0..4).each do |i|
+      drawn.push(deck.cards.sample)
+    end
+    render :json => drawn
   end
-
-
-
 end
