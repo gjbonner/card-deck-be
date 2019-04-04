@@ -12,7 +12,12 @@ class Api::V1::DecksController < ApplicationController
     render :json => deck.cards
   end
 
-  def get_deck
-    deck = Deck.find_by(id)
+  def draw
+    deck = Deck.find(params[:id])
+    random = deck.cards.sample
+    render :json => random
   end
+
+
+
 end
