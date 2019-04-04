@@ -15,9 +15,14 @@ class Api::V1::DecksController < ApplicationController
   def draw
     deck = Deck.find(params[:id])
     drawn = Array.new
-    (0..4).each do |i|
+    (0..4).each do
       drawn.push(deck.cards.sample)
     end
-    render :json => drawn
+    if drawn.uniq.length > 4 
+      render :json => drawn
+    else
+      draw
+    end
   end
+
 end
