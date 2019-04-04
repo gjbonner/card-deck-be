@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       get '/decks/new', to: 'decks#create_deck'
       get '/decks/:id/draw', to: 'decks#draw'
+      get '/decks', to: 'decks#index'
     end
   end
 end

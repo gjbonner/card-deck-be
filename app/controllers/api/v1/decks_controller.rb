@@ -18,11 +18,20 @@ class Api::V1::DecksController < ApplicationController
     (0..4).each do
       drawn.push(deck.cards.sample)
     end
-    if drawn.uniq.length > 4 
+    if drawn.uniq.length > 4
       render :json => drawn
     else
       draw
     end
+  end
+
+  def index
+    decks = Deck.all
+    deck_ids = Array.new
+    decks.each do |deck|
+      deck_ids.push(deck.id)
+    end
+    render :json => deck_ids
   end
 
 end
