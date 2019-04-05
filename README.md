@@ -1,25 +1,9 @@
-# README
+# Welcome!
+This is the back end portion of a deck of cards application. Users can create, delete and draw cards from decks.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Getting Started
+To get started, clone this repo and run ```bundle install``` to install necessary packages. Update any gems in the ```Gemfile``` if necessary.
 
-Things you may want to cover:
+Once done, create your database with ```rails db:create``` and migrate with ```rails db:migrate```
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-"# cards_deck" 
+You're now ready to go! Go ahead and start your server with ```rails s``` this must be done before starting your front end as it needs to run on port 3000.
