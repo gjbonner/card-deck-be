@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       get '/decks/new', to: 'decks#create_deck'
       get '/decks/:id/draw', to: 'decks#draw'
       get '/decks', to: 'decks#index'
+      delete '/decks/:id', to: 'decks#delete_deck'
     end
   end
 end

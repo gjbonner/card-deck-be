@@ -34,4 +34,10 @@ class Api::V1::DecksController < ApplicationController
     render :json => deck_ids
   end
 
+  def delete_deck
+    deck = Deck.find(params[:id])
+    deck.destroy()
+    render json: {success: 'deck deleted'}, status: :accepted
+  end
+
 end
